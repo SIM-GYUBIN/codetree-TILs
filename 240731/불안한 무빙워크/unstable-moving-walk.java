@@ -33,9 +33,6 @@ public class Main {
             firstLoc = before(firstLoc);
             endLoc = before(endLoc);
 
-            if (turn==338){
-                System.out.println();
-            }
             //2. 무빙워크에 올라가있는 사람들 앞으로 한칸 이동
             // 앞 칸에 사람있거나 안정성 0이면 제자리
             for (int i = endLoc; i != before(firstLoc); i = before(i)) {
