@@ -16,7 +16,7 @@ public class Main {
         K = Integer.parseInt(st.nextToken());
 
         safeArr = new int[2*N+1];
-        manLocArr = new boolean[N+1];
+        manLocArr = new boolean[2*N+1];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 1; i <= 2*N; i++) {
@@ -35,7 +35,7 @@ public class Main {
 
             //2. 무빙워크에 올라가있는 사람들 앞으로 한칸 이동
             // 앞 칸에 사람있거나 안정성 0이면 제자리
-            for (int i = N; i > 0; i--) {
+            for (int i = endLoc; i != before(firstLoc); i = before(i)) {
                 if(manLocArr[i]) {
                     //N칸이면 내림 , 움직여서 N칸 돼도 내림
                     if (i == endLoc) {
@@ -69,11 +69,11 @@ public class Main {
 
     }
 
-    private static int before(int firstLoc) {
-        return firstLoc == 1 ? N : firstLoc - 1;
+    private static int before(int idx) {
+        return idx == 1 ? 2*N : idx - 1;
     }
 
-    private static int next(int firstLoc) {
-        return firstLoc == N ? 1 : firstLoc + 1;
+    private static int next(int idx) {
+        return idx == 2*N ? 1 : idx + 1;
     }
 }
